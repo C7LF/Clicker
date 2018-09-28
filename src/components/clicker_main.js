@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-
+import Time from 'react-time';
 
 class ClickerMain extends Component {
   constructor(props) {
     super(props);
     this.state = {
       count: 0,
-      time: 0,
+      time: new Date(0),
       isOn: false,
       start: 0,
       stop: 10000,
@@ -60,7 +60,7 @@ class ClickerMain extends Component {
       <div className="container">
       <p>{this.getCount()}</p>
       <button disabled={this.state.mbtn} onClick={this.incCount.bind(this)}>Click Here</button>
-      <h3>timer: {(this.state.time)}</h3>
+      <h3><Time value={this.state.time} format="s" /></h3>
       </div>
     );
   }
