@@ -10,14 +10,16 @@ class ClickerMain extends Component {
       isOn: false,
       start: 0,
       stop: 10000,
-      mbtn: false
+      mbtn: false,
+      showResults:false
     }
     this.startTimer = this.startTimer.bind(this)
     this.stopTimer = this.stopTimer.bind(this)
   }
 
-  startTimer() {
 
+  startTimer() {
+    this.setState({isOn:true});
   }
 
   tick() {
@@ -34,7 +36,9 @@ class ClickerMain extends Component {
     this.setState({isOn: false})
     clearInterval(this.timer)
     this.setState({mbtn: true})
+    this.setState ({showResults: true})
   }
+
 
   getCount() {
     return this.state.count
@@ -55,12 +59,20 @@ class ClickerMain extends Component {
     })
   }
 
+  averageClick() {
+    return this.state.count / 10;
+  }
+
   render() {
     return (
-      <div className="container">
-      <p>{this.getCount()}</p>
-      <button disabled={this.state.mbtn} onClick={this.incCount.bind(this)}>Click Here</button>
-      <h3><Time value={this.state.time} format="s" /></h3>
+      <div>
+      <div style={this.state.showResults ? {display: 'none' } : { display: '' }}>
+      <p className="time"><Time value={this.state.time} format="s" /></p>
+      <button disabled={this.state.mbtn} onClick={this.incCount.bind(this)}></button>
+      </div>
+        <div className="result" style={this.state.showResults ? {} : { display: 'none' }}>
+          <p><strong>Result: </strong>{this.averageClick()} <small>clicks per second</small></p>
+        </div>
       </div>
     );
   }
