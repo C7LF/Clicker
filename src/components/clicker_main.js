@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Time from 'react-time';
+var logo = require('../assets/clicker-logo.png');
 
 class ClickerMain extends Component {
   constructor(props) {
@@ -59,6 +60,10 @@ class ClickerMain extends Component {
     })
   }
 
+  tryAgain() {
+    window.location.reload();
+  }
+
   averageClick() {
     return this.state.count / 10;
   }
@@ -71,7 +76,9 @@ class ClickerMain extends Component {
       <button disabled={this.state.mbtn} onClick={this.incCount.bind(this)}></button>
       </div>
         <div className="result" style={this.state.showResults ? {} : { display: 'none' }}>
-          <p><strong>Result: </strong>{this.averageClick()} <small>clicks per second</small></p>
+          <img src={logo} alt={"logo"} />
+          <p>{this.averageClick()} <br /><span class="small">clicks per second</span></p>
+          <a href="" onClick={this.tryAgain}>Try Again</a>
         </div>
       </div>
     );

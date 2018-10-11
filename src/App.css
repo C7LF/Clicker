@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  margin-top:22%;
 }
 button {
   position:absolute;
@@ -9,6 +8,38 @@ button {
   top:0;
   left:0;
   z-index:-999;
+  background-image:url(assets/clicker-logo.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  overflow: hidden;
+}
+button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 183, 183, 0.2);
+  opacity: 0;
+  border-radius: 50%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(200, 200);
+  }
+}
+
+button:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
 }
 .time {
   position: absolute;
@@ -19,4 +50,18 @@ button {
   font-size:30px;
   font-weight: bold;
   color:#919191
+}
+.result {
+  margin-top:20%;
+}
+.result p {
+  font-size:30px;
+}
+.result .small {
+  font-size:20px;
+  font-weight:100;
+}
+.result a {
+  color:#C92128;
+  text-decoration: none;
 }
