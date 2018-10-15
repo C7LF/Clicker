@@ -3,7 +3,7 @@
 https://c7lf.github.io/Clicker/
 
 
-<b>Average clicks over 10 seconds - Built with react.</b>
+<b>Guide:</b>
 <ol>
   <li>Start clicking to activate timer.</li>
   <li>Click as fast as you can!</li>
@@ -11,6 +11,6 @@ https://c7lf.github.io/Clicker/
 </ol>
 <em><b>Tip</b>: The timer can be seen at the top left of the page</em>
 
---
+---------------------
 
 <em>This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).</em>
