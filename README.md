@@ -1,4 +1,4 @@
-<b>Average clicks over 10 seconds - Built with react.</b>
+<b>Average clicks over 10 seconds - Built with React.</b>
 
 https://c7lf.github.io/Clicker/
 
